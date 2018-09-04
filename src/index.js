@@ -1,2 +1,5 @@
-import style from './styles.scss'
-console.log('hi')
+import React from 'react'
+import { render } from 'react-dom'
+import App from './App'
+
+render(<App />, document.querySelector('#root'))

@@ -1,36 +1,33 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HtmlWebPackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const htmlPlugin = new HtmlWebPackPlugin({
-  template: "./src/index.html",
-  filename: "./index.html"
-});
+  template: './src/index.html',
+  filename: './index.html'
+})
 
 module.exports = {
-    entry: "./src/index.js",
-    output: {
-      path: path.resolve('prod'),
-      filename: 'bundle.js'
-    },
+  entry: './src/index.js',
+  output: {
+    path: path.resolve('prod'),
+    filename: 'bundle.js'
+  },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
+          loader: 'babel-loader'
         }
       },
       {
         test: /\.scss$/,
         use: [
           {
-            loader: "style-loader"
+            loader: 'style-loader'
           },
           {
-            loader: "sass-loader"
-          },
-          {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               sourceMap: true,
               minimize: true
@@ -41,4 +38,4 @@ module.exports = {
     ]
   },
   plugins: [htmlPlugin]
-};
+}
